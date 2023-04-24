@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'channels',
     'core',
     'room',
-    'djangochat'
+
 ]
 
 MIDDLEWARE = [
