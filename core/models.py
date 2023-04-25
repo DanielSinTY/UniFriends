@@ -3,7 +3,7 @@ from django.db import models
 
 class Interest(models.Model):
     name = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True)
+
     availCount =  models.IntegerField()
 
     def __str__(self):

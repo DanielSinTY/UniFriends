@@ -2,9 +2,9 @@ from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from room.rooms import CreateRoom
 from .forms import SignUpForm
-from .forms import interestForm
+from .forms import interestForm,newInterestForm
 from django.contrib.auth.models import User
-from .models import InterestUserRelation
+from .models import InterestUserRelation,Interest
 def frontpage(request):
     return render(request, 'core/frontpage.html')
 
@@ -39,7 +39,7 @@ def setinterest(request):
                 i.availCount+=1
                 newInterest = InterestUserRelation(interest=i, user=request.user)
                 newInterest.save()
-                if i.availCount==10:
+                if i.availCount==6:
                     CreateRoom(i)
                     i.availCount=0
                 i.save()
@@ -48,4 +48,16 @@ def setinterest(request):
             return redirect('frontpage')
     else:
         form = interestForm()
+    return render(request, 'core/interest.html', {'form': form})
+
+def newinterest(request):
+    if request.method == 'POST':
+        form = newInterestForm(request.POST)
+
+        if form.is_valid():
+            newInterest=Interest(name=form.cleaned_data['newInterest'],availCount=0)
+            newInterest.save()
+            return redirect('interest')
+    else:
+        form = newInterestForm()
     return render(request, 'core/interest.html', {'form': form})

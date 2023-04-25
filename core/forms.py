@@ -12,17 +12,12 @@ class SignUpForm(UserCreationForm):
         fields = ['username', 'password1', 'password2']
 
 class interestForm(forms.Form):
-    # def __init__(self, *args, **kwargs):
-    #     super(interestForm, self).__init__(*args, **kwargs)
-    #     self.fields['interest'] = forms.ModelChoiceField(
-    #         queryset=Interest.objects.all()
-    #     )
-    #
-    # class Meta:
-    #     model = Interest
-    # choices=zip(Interest.objects.values_list('name'),Interest.objects.values_list('slug'))
+
 
     interests = forms.ModelMultipleChoiceField(
         queryset=Interest.objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
+
+class newInterestForm(forms.Form):
+    newInterest = forms.CharField(label='Your interest to be added', max_length=100)
