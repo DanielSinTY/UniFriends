@@ -6,7 +6,9 @@
 <div class="p-10 lg:p-20 text-center">
     <h1 class="text-3xl lg:text-6xl text-black">Set Interests</h1>
 </div>
-
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-xl lg:text-2xl text-black">Can't find your interests? </h1><br><a href="../newinterest" class="px-5 py-3 rounded-xl text-white bg-blue-600 hover:bg-blue-700">Add new Interest!</a>
+</div>
 <form method="post" action="." class="lg:w-1/4 px-4 mx-auto">
     {% csrf_token %}
 
@@ -15,7 +17,5 @@
     <button class="px-5 py-3 rounded-xl text-white bg-blue-600 hover:bg-blue-700">Set!</button>
 </form>
 
-<div class="p-10 lg:p-20 text-center">
-    <h1 class="text-xl lg:text-2xl text-black">Can't find your interests? </h1><br><a href="../newinterest" class="px-5 py-3 rounded-xl text-white bg-blue-600 hover:bg-blue-700">Add new Interest!</a>
-</div>
+
 {% endblock %}
