@@ -3,14 +3,27 @@
 {% block title %}{{ room.name }} | {% endblock %}
 
 {% block content %}
-<div class="p-10 lg:p-20 text-center">
-    <h1 class="text-3xl lg:text-6xl text-black">{{ room.name }}</h1>
+<div class="p-10 text-center">
+    <h1 class="text-3xl lg:text-5xl text-black">{{ room.name }}</h1>
 </div>
 <div class="flow-root">
     <div class="lg:w-4/5 p-3 float-left">
 <div class="lg:w-7/10 mx-4 lg:mx-auto p-4 bg-white rounded-xl">
     <div class="chat-messages space-y-3" id="chat-messages">
-        {% for m in messages %}<b>{{ m.user.username }}</b>: {{ m.content }}<br>{% endfor %}
+        {% for m in messages %}
+            {% if m.content != "" %}
+            {% if m.user == curuser%}
+                <div class="ml-auto w-fit bg-blue-300 p-1 shadow rounded-lg">
+                        {{ m.content }}<br> </div>
+            {% else %}
+                {% if m.user.username == "system" %} <div class="w-fit p-1 bg-red-300 shadow rounded-lg">
+                    [System Message]
+                {% else %} <div class="w-fit bg-blue-300 p-1 shadow rounded-lg"><b>{{ m.user.username }}</b>:
+                {% endif %}  <br>{{ m.content }}<br> </div>
+            {% endif %}
+            {% endif %}
+
+        {% endfor %}
     </div>
 </div>
 

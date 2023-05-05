@@ -16,7 +16,16 @@ def signup(request):
             user = form.save()
 
             login(request, user)
+            # if user does not have rooms (i.e. new user), redirect to timetable.html
+            # TO BE IMPLEMENTED
+            if (True):
+                return render(request, 'core/timetable.html')
+            
+            # else (i.e. not new user), go to rooms instead of frontpage
+            # TO BE IMPLEMENTED
+            
 
+            # TO BE DELETED
             return redirect('frontpage')
     else:
         form = SignUpForm()
@@ -61,3 +70,6 @@ def newinterest(request):
     else:
         form = newInterestForm()
     return render(request, 'core/interest.html', {'form': form})
+
+def timetable(request):
+    return render(request, 'core/timetable.html')
