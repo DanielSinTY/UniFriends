@@ -3,8 +3,8 @@
 {% block title %}{{ room.name }} | {% endblock %}
 
 {% block content %}
-<div class="p-10 text-center">
-    <h1 class="text-3xl lg:text-5xl text-black">{{ room.name }}</h1>
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-3xl lg:text-6xl text-black">{{ room.name }}</h1>
 </div>
 <div class="flow-root">
     <div class="lg:w-4/5 p-3 float-left">
@@ -13,10 +13,10 @@
         {% for m in messages %}
             {% if m.content != "" %}
             {% if m.user == curuser%}
-                <div class="ml-auto w-fit bg-blue-300 p-1 shadow rounded-lg">
+                <div class="ml-auto w-fit bg-emerald-400 p-1 shadow rounded-lg">
                         {{ m.content }}<br> </div>
             {% else %}
-                {% if m.user.username == "system" %} <div class="w-fit p-1 bg-red-300 shadow rounded-lg">
+                {% if m.user.username == "system" %} <div class="ml-auto mr-auto text-center w-fit p-1 bg-red-300 shadow rounded-lg">
                     [System Message]
                 {% else %} <div class="w-fit bg-blue-300 p-1 shadow rounded-lg"><b>{{ m.user.username }}</b>:
                 {% endif %}  <br>{{ m.content }}<br> </div>
@@ -29,6 +29,7 @@
 
 <div class="lg:w-7/10 mt-6 mx-4 lg:mx-auto p-4 bg-white rounded-xl ">
     <form method="post" action="." class="flex">
+        {% csrf_token %}
         <input type="text" name="content" class="flex-1 mr-3" placeholder="Your message..." id="chat-message-input">
 
         <button 
@@ -71,9 +72,16 @@
         const data = JSON.parse(e.data);
 
         if (data.message) {
-            document.querySelector('#chat-messages').innerHTML += ('<b>' + data.username + '</b>: ' + data.message + '<br>');
-        } else {
-            alert('The message was empty!')
+            if (data.username==userName){
+            document.querySelector('#chat-messages').innerHTML +=('<div class="ml-auto w-fit bg-emerald-400 p-1 shadow rounded-lg">'+
+                        data.message+'<br> </div>');
+                        }
+            else{if (data.username=='system'){
+            document.querySelector('#chat-messages').innerHTML +=('<div class="ml-auto mr-auto text-center w-fit p-1 bg-red-300 shadow rounded-lg">[System Message]<br>'+ data.message + '<br> </div>');
+            }
+            else{
+            document.querySelector('#chat-messages').innerHTML += ('<div class="w-fit bg-blue-300 p-1 shadow rounded-lg"><b>' + data.username + '</b>:<br> ' + data.message + '<br> </div>');}
+               }
         }
 
         scrollToBottom();
