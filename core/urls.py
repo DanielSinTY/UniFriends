@@ -9,5 +9,6 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('interests/', views.setinterest, name='interest'),
-    path('newinterest/', views.newinterest, name='newinterest')
+    path('newinterest/', views.newinterest, name='newinterest'),
+    path('timetable/', views.timetable, name='timetable')
 ]
