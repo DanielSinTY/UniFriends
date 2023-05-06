@@ -1,5 +1,3 @@
-import InterestUserRelation and Interest from models.py 
-
 {% extends 'core/base.html' %}
 
 {% block title %}View Profile | {% endblock %}
@@ -14,9 +12,9 @@ import InterestUserRelation and Interest from models.py
     <h1 class="text-lg lg:text-2xl text-black">Interests</h1>
     <ul class="py-2 text-sm text-blue-700 dark:text-blue-200">
         <!-- list of interests (code not working!) -->
-        {% for i in InterestUserRelation.objects.filter(user=request.user) %}
+        {% for i in interests %}
             <li>
-                <h3 class="text-l lg:text-2xl text-black">{{i.interest.name}}</h3><br>
+                <h3 class="text-l lg:text-2xl text-black">{{i}}</h3><br>
             </li>
         {% endfor %}
         <!-- list of interests end -->

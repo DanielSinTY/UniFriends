@@ -75,4 +75,4 @@ def timetable(request):
     return render(request, 'core/timetable.html')
 
 def profile(request):
-    return render(request, 'core/profile.html')
+    return render(request, 'core/profile.html',{'interests':[i.interest for i in InterestUserRelation.objects.filter(user=request.user)]})
