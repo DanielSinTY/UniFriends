@@ -9,8 +9,14 @@
     <h2 class="text-l lg:text-2xl text-black">Input your timetable so we can suggest activites in timeslots when you're free!</h2>
 </div>
 
-{% load static %}
-<img class="h-auto max-w-xs lg:max-w-xl mx-auto" src="{% static 'calendar.png' %}" alt="timetable">
+<div class="px-2 lg:px-10 w-full flex flex-wrap justify-center items-center">
+    <div class="w-fit p-4 bg-white shadow rounded-xl text-center">
+        {% load static %}
+        <img class="h-auto max-w-xs lg:max-w-xl" src="{% static 'calendar.png' %}" alt="timetable">
+    </div>
+</div>
+
+
 
 <div class="p-10 flex flex-row items-center justify-center space-x-4">
     <a href="/interests/" class="px-5 py-3 rounded-xl text-white bg-blue-600 hover:bg-blue-700">Auto Import</a>
