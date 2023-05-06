@@ -4,12 +4,46 @@
 
 {% block content %}
 <div class="p-10 text-center">
-    <h1 class="text-3xl lg:text-6xl text-black">You need friends? UniFriends!</h1><br>
-    <h2 class="text-2xl lg:text-4xl text-black">Make real friends in a few seconds</h2><br>
-    <h3 class="text-xl lg:text-2xl text-black">You can find friends with similar interest here</h3><br><br>
+    <h1 class="text-3xl lg:text-6xl text-black">You need friends? UniFriends!</h1>
+    <h2 class="text-xl lg:text-4xl text-black">Make real friends in a few seconds</h2><br>
+    <!-- <h3 class="text-xl lg:text-2xl text-black">You can find friends with similar interest here</h3><br><br> -->
     <h4 class="text-l lg:text-xl text-black">How to use?</h4>
-    <span class="text-s lg:text-m text-black">First, register or log in.</span><br>
-    <span class="text-s lg:text-m text-black">Then, add your interest by clicking Set Interest.</span><br>
-    <span class="text-s lg:text-m text-black">Finally, Just wait and you will be added to groups when you are matched. You can find your groups by clicking Rooms</span>
+    <div class="px-2 lg:px-10 w-full flex flex-wrap items-center">
+            <!-- step 1: create profile -->
+            <div class="w-1/2 lg:w-1/4 px-3 py-3">
+                <div class="p-4 bg-white shadow rounded-xl text-center">
+                    <h2 class="mb-5 text-lg lg:text-2xl font-semibold">Create Profile</h2>
+                    {% load static %}
+                    <img class="h-auto w-20 lg:max-w-xl mx-auto" src="{% static 'profile.png' %}" alt="profile">
+                </div>
+            </div>
+            <!-- step 2: add timetable -->
+            <div class="w-1/2 lg:w-1/4 px-3 py-3">
+                <div class="p-4 bg-white shadow rounded-xl text-center">
+                    <h2 class="mb-5 text-lg lg:text-2xl font-semibold">Add Timetable</h2>
+                    {% load static %}
+                    <img class="h-auto w-20 lg:max-w-xl mx-auto" src="{% static 'calendar_icon.png' %}" alt="calendar">
+                </div>
+            </div>
+            <!-- step 3: add interests -->
+            <div class="w-1/2 lg:w-1/4 px-3 py-3">
+                <div class="p-4 bg-white shadow rounded-xl text-center">
+                    <h2 class="mb-5 text-lg lg:text-2xl font-semibold">Add Interests</h2>
+                    {% load static %}
+                    <img class="h-auto w-20 lg:max-w-xl mx-auto" src="{% static 'basketball.png' %}" alt="interests">
+                </div>
+            </div>
+            <!-- step 4: done! -->
+            <div class="w-1/2 lg:w-1/4 px-3 py-3">
+                <div class="p-4 bg-white shadow rounded-xl text-center">
+                    <h2 class="mb-5 text-lg lg:text-2xl font-semibold">Start chatting!</h2>
+                    {% load static %}
+                    <img class="h-auto w-20 lg:max-w-xl mx-auto" src="{% static 'friends.png' %}" alt="friends">
+                </div>
+            </div>
+    </div><br>
+    <!-- <h3 class="text-2xl lg:text-4xl text-black">Sign up here!</h3><br> -->
+    <a href="/signup/" class="px-5 py-3 rounded-xl text-white text-2xl bg-blue-600 hover:bg-blue-700">Sign up here!</a><br><br>
+    <a href="/login/" class="py-3 text-black underline">Already have a profile? Login here</a>
 </div>
 {% endblock %}

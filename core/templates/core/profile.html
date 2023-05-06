@@ -1,0 +1,27 @@
+import InterestUserRelation and Interest from models.py 
+
+{% extends 'core/base.html' %}
+
+{% block title %}View Profile | {% endblock %}
+
+{% block content %}
+
+<div class="p-10 text-center items-center justify-center">
+    <h1 class="text-3xl lg:text-6xl text-black">Your Profile</h1>
+</div>
+
+<div class="p-10 text-center items-center justify-center">
+    <h1 class="text-lg lg:text-2xl text-black">Interests</h1>
+    <ul class="py-2 text-sm text-blue-700 dark:text-blue-200">
+        <!-- list of interests (code not working!) -->
+        {% for i in InterestUserRelation.objects.filter(user=request.user) %}
+            <li>
+                <h3 class="text-l lg:text-2xl text-black">{{i.interest.name}}</h3><br>
+            </li>
+        {% endfor %}
+        <!-- list of interests end -->
+    </ul>
+</div>
+
+
+{% endblock %}

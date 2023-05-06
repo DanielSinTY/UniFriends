@@ -73,3 +73,6 @@ def newinterest(request):
 
 def timetable(request):
     return render(request, 'core/timetable.html')
+
+def profile(request):
+    return render(request, 'core/profile.html')
