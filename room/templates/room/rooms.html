@@ -5,7 +5,11 @@
 {% block content %}
 <div class="p-10 text-center">
     <h1 class="text-3xl lg:text-6xl text-black">Your groups</h1>
+    {% if rooms %}
     <h2 class="text-l lg:text-2xl text-black">We have matched some friends with common interests for you</h2>
+    {% else %}
+    <h2 class="text-l lg:text-2xl text-black">No groups here yet... Add interests by clicking set interest under menu if you haven't. Otherwise, just be patient and wait to be matched</h2>
+    {% endif %}
 </div>
 
 <div class="px-10 w-full flex flex-wrap items-center">

@@ -6,7 +6,10 @@ from .models import Room, Message
 @login_required
 def rooms(request):
     print(request.user)
-    rooms = Room.objects.filter(members__username__in=[request.user.username])
+    if request.user.username=="system":
+        rooms= Room.objects.all()
+    else:
+        rooms = Room.objects.filter(members__username__in=[request.user.username])
 
 
     return render(request, 'room/rooms.html', {'rooms': rooms})

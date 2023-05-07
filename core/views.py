@@ -54,7 +54,7 @@ def setinterest(request):
                 i.save()
 
 
-            return redirect('frontpage')
+            return redirect('rooms')
     else:
         form = interestForm()
     return render(request, 'core/interest.html', {'form': form})
