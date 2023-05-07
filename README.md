@@ -1,18 +1,13 @@
-# Djangochat
+# UniFriends
 
-Learn how to build a real-time chat application using Django and Channels. The design is made using Tailwind CSS.
+You need friends? UniFriends!
+Real friends in seconds
 
-This repository is a part of a video tutorial on my YouTube channel: Code With Stein
+- Minimal setup, the fastest way for you to meet friends
+Create profile, add interests, and the app will match you with a few other members sharing same interests with you!
 
-## YouTube
-* [Part 1](https://www.youtube.com/watch?v=OyUrMENgZRE)
-* [Part 2](https://www.youtube.com/watch?v=r8LN9yxLgdY)
-* [Part 3](https://www.youtube.com/watch?v=0CZuO5TV8SI)
+- Activities suggestion
+Automatically recommend activities in periods when you and your friends are free.
+No more awkwardness asking friends out, no more clashing schedules
 
-My channel:
-[CodeWithStein](https://www.youtube.com/channel/UCfVoYvY8BfTDeF63JQmQJvg/?sub_confirmation=1)
-
-## Author
-This repository and video is created by CodeWithStein. Check out my website for more information.
-
-[Code With Stein - Website](https://codewithstein.com)
+Build your social circle right now!
